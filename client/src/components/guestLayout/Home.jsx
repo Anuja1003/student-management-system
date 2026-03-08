@@ -106,11 +106,11 @@ const Home = () => {
     margin: '0 6px'
   };
 
-  const activeIndicatorStyle = {
+  {/*const activeIndicatorStyle = {
     ...indicatorStyle,
     backgroundColor: '#ffffff',
     transform: 'scale(1.2)'
-  };
+  };*/}
 
   const contentWrapperStyle = {
     maxWidth: '1200px',

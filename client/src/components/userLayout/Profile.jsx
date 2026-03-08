@@ -20,8 +20,7 @@ import {
   CheckCircle,
   XCircle,
   Book,
-  Calendar,
-  Clock
+  Calendar
 } from 'react-bootstrap-icons';
 
 const API_BASE = "http://localhost:8000/api/users";
@@ -120,7 +119,7 @@ const Profile = () => {
     setSuccess('');
     
     try {
-      const userData = JSON.parse(localStorage.getItem('user'));
+      //const userData = JSON.parse(localStorage.getItem('user'));
       const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       };
