@@ -8,6 +8,14 @@ const getAuthHeaders = () => {
   };
 };
 
+const getStudentAuthHeaders = () => {
+  const token = localStorage.getItem("token");
+
+  return {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+};
 export const apiService = {
   // Users API
   async getUsers() {
