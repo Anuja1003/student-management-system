@@ -107,7 +107,7 @@ const StudentDashboard = () => {
 
   useEffect(() => {
     fetchUserProfile();
-  }, []);
+  }, [fetchUserProfile]);
 
   const fetchUserProfile = async () => {
     setLoading(true);

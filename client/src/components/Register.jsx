@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
+import { Form, Button, Alert, Card } from 'react-bootstrap';
 
 const Register = () => {
   const [formData, setFormData] = useState({

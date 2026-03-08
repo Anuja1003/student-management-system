@@ -97,14 +97,14 @@ const Home = () => {
     justifyContent: 'center'
   };
 
-  const indicatorStyle = {
+  {/*const indicatorStyle = {
     width: '12px',
     height: '12px',
     borderRadius: '50%',
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     border: 'none',
     margin: '0 6px'
-  };
+  };*/}
 
   {/*const activeIndicatorStyle = {
     ...indicatorStyle,
