@@ -105,46 +105,41 @@ const StudentDashboard = () => {
     { subjectCode: 'MCA202', subjectName: 'Object Oriented Programming', grade: 'A+', credits: 4, semester: 'Semester 2' }
   ];
 
+  useEffect(() => {
   const fetchUserProfile = async () => {
-  setLoading(true);
-  setError(null);
+    setLoading(true);
+    setError(null);
 
-  try {
-    const token = localStorage.getItem("token");
+    try {
+      const token = localStorage.getItem("token");
 
-    // Fetch user profile using your existing API
-    const response = await fetch("http://localhost:8000/api/users/profile", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
+      const response = await fetch("http://localhost:8000/api/users/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
-    if (!response.ok) throw new Error("Failed to fetch user profile");
+      if (!response.ok) throw new Error("Failed to fetch user profile");
 
-    const data = await response.json();
-    setUserProfile(data.user);
+      const data = await response.json();
+      setUserProfile(data.user);
 
-    // Set subjects based on user's course
-    if (data.user.course && courseSubjects[data.user.course]) {
-      setSubjects(courseSubjects[data.user.course][selectedSemester] || []);
+      if (data.user.course && courseSubjects[data.user.course]) {
+        setSubjects(courseSubjects[data.user.course][selectedSemester] || []);
+      }
+
+      setGrades(mockGrades);
+    } catch (err) {
+      setError(err.message);
+      console.error("Error fetching user profile:", err);
+    } finally {
+      setLoading(false);
     }
+  };
 
-    // Set grades (in real app, fetch from API)
-    setGrades(mockGrades);
-  } catch (err) {
-    setError(err.message);
-    console.error("Error fetching user profile:", err);
-  } finally {
-    setLoading(false);
-  }
-};
-
-// eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => {
   fetchUserProfile();
-}, []);
-
+}, [selectedSemester]);
   const handleSemesterChange = (semester) => {
     setSelectedSemester(semester);
     if (userProfile?.course && courseSubjects[userProfile.course]) {
