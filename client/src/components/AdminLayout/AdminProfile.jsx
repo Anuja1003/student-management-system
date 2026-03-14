@@ -95,7 +95,7 @@ const AdminProfile = () => {
     setSuccess('');
     
     try {
-      const userData = JSON.parse(localStorage.getItem('user'));
+      //const userData = JSON.parse(localStorage.getItem('user'));
       const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       };
