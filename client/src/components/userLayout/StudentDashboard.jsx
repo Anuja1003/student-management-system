@@ -105,15 +105,17 @@ const StudentDashboard = () => {
     { subjectCode: 'MCA202', subjectName: 'Object Oriented Programming', grade: 'A+', credits: 4, semester: 'Semester 2' }
   ];
 
-  useEffect(() => {
-    fetchUserProfile();
-  }, [fetchUserProfile]);
-
-  const fetchUserProfile = async () => {
+   const fetchUserProfile = async () => {
     setLoading(true);
     setError(null);
     try {
       const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, [fetchUserProfile]);
+
+ 
       
       // Fetch user profile using your existing API
       const response = await fetch('http://localhost:8000/api/users/profile', {

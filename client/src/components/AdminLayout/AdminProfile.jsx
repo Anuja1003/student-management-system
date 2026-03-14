@@ -7,9 +7,7 @@ import {
   Card,
   Button,
   Form,
-  Alert,
-  Spinner,
-  Badge
+  Alert
 } from 'react-bootstrap';
 import { 
   PersonCircle, 
